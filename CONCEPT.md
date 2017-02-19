@@ -17,13 +17,16 @@ Hier wird immer die "echte" Seite mit Header, Footer und Grid angezeigt. Die dar
 Hier wird ein vorderfiniertes Format ausgegeben, welches in ansprechender Form die Farben, Schriftarten und -größen sowie weitere Styles ausgibt. Dieses Template liegt bereits im `frontend-framework` als Vorlage vor.
 
 ## Komponenten
-Die Komponenten werden in einer für Entwickler optimierten Version ausgegeben. Hier kann zwischen den einzelnen Varianten gewechselt werden und das Markup, CSS-Styles, JS-Dateien (JSX, TS....) oder die HBS-Templates in einer Vorschau betrachtet werden.
+Die Komponenten werden in einer für Entwickler optimierten Version ausgegeben. Hier kann zwischen den einzelnen Varianten gewechselt werden und das Markup, CSS-Styles, JS-Dateien (JSX, TS....), JSON-Struktur und die HBS-Templates in einer Vorschau betrachtet werden.
+
+Komponenten werden grundsätzlich in einer statischen HTML-Variante und als vorkompiliertes HBS-Äquivalent vorgehalten. Zu jeder Komponente wird eine JSON-Datenstruktur generiert, welche benötigt wird, um das HBS-Template zu rendern. Diese Datenstruktur wird aus den Metadaten (siehe template Engine unten) in den jeweiligen Elementen/Komponenten extrahiert.
 
 
 # Technologie
 
 ## Template Engine
-Als Template Engine wird Handlebars genutzt, einerseits für das statische Rendern des Markups der Seitenvorschau, sowie zur Precompilation der einzelnen Komponenten
+Als Template Engine wird Handlebars genutzt, einerseits für das statische Rendern des Markups der Seitenvorschau, sowie zur Precompilation der einzelnen Komponenten. 
+
 Für die Beschreibung der Metadaten von Seiten und Komponenten wird YAML oder JSON im Header der Templates eingefügt und von der Template Engine ausgewertet.
 
 ## JavaScript
@@ -39,5 +42,7 @@ Für die Erstellung von CSS wird grundlegend auf SASS im BEM-Format gesetzt
 Für das Nachladen von Komponenten wird grundsätzlich der VI conditional-resource-loader genutzt.
 
 ## Useref
-Es besteht weiterhin die Möglichkeit die wichtigsten Elemente des Frmaeworks (Header, Footer, Grid usw.) bereits in einer styles.all.min.js zusammenzufassen
+Es besteht weiterhin die Möglichkeit die wichtigsten Elemente des Frameworks (Header, Footer, Grid usw.) bereits in einer styles.all.min.js zusammenzufassen
 
+# Aufbau der Komponenten
+Die Komponenten setzen sich aus Elementen zusammen, die jeweils das kleinste, wiederverwertbare Markup-Element darstellen. Die Aufteilung ist hier weniger strikt als es zB im Atomic Design gefordert wird. Jedes Element besitzt, sofern Daten dynamisiert werden, eine Beschreibung der Datenstruktur im Header (JSON oder YAML).
