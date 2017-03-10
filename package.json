@@ -29,8 +29,15 @@
     "vi-css-helper": "virtualidentityag/vi-css-helper#1.1.1"
   },
   "devDependencies": {
+    "babel-jest": "^19.0.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "enzyme": "^2.7.1",
     "gulp": "3.9.1",
     "gulp-build-framework": "https://github.com/virtualidentityag/gulp-build-framework.git#0.1.1",
+    "jest": "^19.0.2",
+    "react-addons-test-utils": "^15.4.2",
+    "react-test-renderer": "^15.4.2",
     "require-dir": "0.3.1"
   },
   "engines": {
