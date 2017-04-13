@@ -1,0 +1,30 @@
+---
+component: demoComponent
+name: Demo Component
+description: Hello World
+variations:
+  - variante1
+    name: Variante 1
+    description: Desc v1
+  - variante2
+grid:
+  - col12
+  - col6
+---
+
+<!-- DEV-NOTES:
+	- 
+	-
+	-
+-->
+<div class="demoComponent demoComponent--{{variation}}" data-resources="{}" data-init="">
+	{{#if variation === 'variation2'}}
+	<h2>{{headline}}</h2>
+	{{/if}}
+	<ul>
+		{{> component/demoComponent/hbs/demoComponent.list }}
+	</ul>
+	{{#if showFooter }}
+	<footer>{{footer}}</footer>
+	{{/if}}
+</div>
