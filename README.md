@@ -20,7 +20,7 @@ It depends heavily on the [gulp-build-framework](https://github.com/virtualident
 **yarn** is a Node Package Manager which will allow us to download and install required components for Node.js with ease
 See <https://yarnpkg.com/> for details of this dependency manager
 
-1. Run `npm install -g yarn` to install yarn dependency manager 
+1. Run `npm install -g yarn` to install yarn dependency manager
 1a. (On windows) You can also get the installer from <https://yarnpkg.com/en/docs/install>.
 
 ### 3. Gulp
@@ -53,10 +53,10 @@ This file lets you enable and disable certain tasks as well as specify additiona
 __resource folders__
 To add additional resource folders, create the folders and add the paths to the global.resources array.
 The path needs to be prepended with a "/" and relative to the app folder.
-The default resource folder is "/resources"
+The default resource folder is "/resources".
 
 __tasks__
-To disable certain tasks, simply set the specific task to false. 
+To disable certain tasks, simply set the specific task to false.
 At the moment the tasks that can be disabled are: "linting", "iconfont", "angular", "handlebars", "uglify", "cleanCss", "favicons", "cssStats".
 Per default all tasks are enabled.
 
@@ -64,22 +64,22 @@ __uglifyExceptions__
 You can add files which should not be uglified during the uglify task (e.g. files that are already uglified)
 
 __externalResources__
-Add file paths of files that are needed for the build package. The path must be relative to each package inside node_modules.
+The "externalResources" object is used to list external dependencies for each resource folder. The files listed under each resource folder will be fetched during build and copied into the relevant subfolders of that resource folder (for example CSS files will go into "css/vendor" subfolder). The file paths must be relative to each package inside node_modules.
 
 ## Patterns
 
-We use different boilerplates to keep our coding structure as homogenous as possible. 
+We use different boilerplates to keep our coding structure as homogenous as possible.
 
 ### JavaScript / TypeScript
 
 #### jQuery TypeScript Plugins - Advanced
 
-The framework contains a local demo integration of the VI jQuery Boilerplate. 
+The framework contains a local demo integration of the VI jQuery Boilerplate.
 See `app/resources/ts/jquery.plugin.advanced.ts` for a local demo.
 
 For more informations have a look at the repository: https://github.com/vi-plugins/jquery-boilerplate
 
-If you are going to write generic plugins that might be useful in lots of other projects, 
+If you are going to write generic plugins that might be useful in lots of other projects,
 please mirror the repository above and add them to our [vi-plugins](https://github.com/vi-plugins) project.
 
 For project-use only you can copy the structure into your local `app/resources/ts/` folder.
@@ -90,10 +90,10 @@ For project-use only you can copy the structure into your local `app/resources/t
 The standalone jQuery TypeScript Plugin is a TypeScript port of the legacy jQuery Plugin boilerplate.
 See `app/resources/ts/jquery.plugin.simple.ts` for a local demo.
 
-It includes the same features as the legacy boilerplate but nicely enriched by lots of TypeScript features like type checking and code completion. 
+It includes the same features as the legacy boilerplate but nicely enriched by lots of TypeScript features like type checking and code completion.
 We also use the possibility to compile to ES5 or ES6. Depending on the projects browser matrix.   
 
-The corresponding pattern file can be found in `patterns/jquery.typescript.boilerplate.ts` 
+The corresponding pattern file can be found in `patterns/jquery.typescript.boilerplate.ts`
 
 
 #### Plain and simple jQuery Plugins (legacy way)
@@ -105,7 +105,7 @@ The corresponding pattern file can be found in `/patterns/jquery.typescript.boil
 
 ### CSS / SASS
 
-We compile the CSS stylesheets with a SASS compiler. To organize the code as efficient as possible we use the BEM methodology: 
+We compile the CSS stylesheets with a SASS compiler. To organize the code as efficient as possible we use the BEM methodology:
 see https://github.com/virtualidentityag/viFrontendStandards/wiki/vi-BEM  
 
 
@@ -147,10 +147,10 @@ run the boilerplate with `gulp serve`
 
 ## Testing
 
-**Nightwatch.js** is an End-to-End (E2E) testing solution for browser based apps and websites using Selenium to automatically 
+**Nightwatch.js** is an End-to-End (E2E) testing solution for browser based apps and websites using Selenium to automatically
 perform commands and assertions on DOM elements.
 
-There are two different Gulp Tasks: 'test' for using an external Selenium server and 'test:dev' to start the test on a 
+There are two different Gulp Tasks: 'test' for using an external Selenium server and 'test:dev' to start the test on a
 local selenium. The npm packages for 'test:local' are not included in the package.json, so you need to install them manually.
 
 **Travis CI** Testing is used for automated boilerplate testing. It uses Mocha/Chai and checks the build process and compares the generated static files with there fixtures. To run the tests locally execute `mocha test/travis/build.js` from terminal. Install mocha globally.
@@ -180,7 +180,7 @@ module.exports = {
 ### gulp test:dev
 
 Add your settings in the configuration file `/test/nightwatch/nightwatch.dev.js`
-npm packages to install: 
+npm packages to install:
 Selenium.jar: `npm install selenium-server-standalone-jar`
 GraficMagick: `npm install gm`
 
@@ -205,7 +205,7 @@ There is a gulp task for doing releases. Use gulp release --type=[major,minor,pa
 ### Line-break errors in eslint
 
 If there are line-break errors in eslint, it may be because false line endings set by git.
-To prevent this use the git config "core.autocrlf". 
+To prevent this use the git config "core.autocrlf".
 Use the command "git config core.autocrlf false" to prevent windows from using crlf instead of lf.
 
 ### gulp serve malloc error (Unix Only)
