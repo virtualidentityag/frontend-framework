@@ -5240,7 +5240,7 @@ jpegtran-bin@^3.0.0:
     bin-wrapper "^3.0.0"
     logalot "^2.0.0"
 
-"jquery-base@https://github.com/vi-plugins/jquery-base.git":
+"jquery-base@https://github.com/vi-plugins/jquery-base.git#1.0.0":
   version "1.0.0"
   resolved "https://github.com/vi-plugins/jquery-base.git#f55ed74c60227022b8ec21d1679075d0ef22dd53"
 
@@ -5248,7 +5248,7 @@ jpegtran-bin@^3.0.0:
   version "1.1.3"
   resolved "git+https://github.com/janrembold/jquery-debouncedwidth#5168afa9b16cd66798e44e95dacf6c5ce542ea43"
 
-"jquery-events@https://github.com/vi-plugins/jquery-events.git":
+"jquery-events@https://github.com/vi-plugins/jquery-events.git#1.0.0":
   version "1.0.0"
   resolved "https://github.com/vi-plugins/jquery-events.git#d0d76de55fcf88b89be7d8068670a87c9b0c204c"
 
