@@ -1,0 +1,20 @@
+{{> includes/htmltag }}
+<head>
+	{{> includes/htmlhead.meta }}
+
+	<!-- inject:head:html -->
+	<!-- endinject -->
+
+	{{> includes/htmlhead.styles }}
+	{{> includes/htmlhead.scripts }}
+</head>
+<body role="document" class="{{bodyClass}}" style="background:lightcoral">
+    <header>HEADER</header>
+
+    <div class="aem-container" style="background:white;width:1000px;margin:0 auto;">
+        {{> (lookup . 'contentMain') }}
+    </div>
+
+	{{> includes/scripts }}
+</body>
+</html>
