@@ -1,3 +1,4 @@
+{{#unless aemTask }}
 {{> includes/htmltag }}
 <head>
 	{{> includes/htmlhead.meta }}
@@ -12,9 +13,12 @@
     <header>HEADER</header>
 
     <div class="aem-container" style="background:white;width:1000px;margin:0 auto;">
-        {{> (lookup . 'contentMain') }}
+{{/unless}}
+        {{~> (lookup . 'contentMain') ~}}
+{{#unless aemTask }}
     </div>
 
 	{{> includes/scripts }}
 </body>
 </html>
+{{/unless}}

@@ -1,4 +1,10 @@
 <div id="aem-component">
+    <script>
+        // This is needed in order to pass the app root to the javascript level
+        window.exampleAemModule = {
+            app_root: "./"
+        }
+    </script>
     {{> headline.h1/headline.h1.overline headline="AEM COMPONENT DE" }}
     {{> leadtext/leadtext }}
 </div>
