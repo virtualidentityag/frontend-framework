@@ -11,16 +11,18 @@
 
 		/* globals resourceLoader */
 		resourceLoader({
-			base: global.configuration.get('data.staticResourcesBase'),
+			base: ffglobal.configuration.get('data.staticResourcesBase'),
 			baseMap: {
-				'##content': global.configuration.get('data.staticResourcesContentRepoBase')
+				'##content': ffglobal.configuration.get('data.staticResourcesContentRepoBase')
 			}
 		});
 
 		function init() {
-			global.configuration.get('initCore')();
+			ffglobal.configuration.get('initCore')();
 
 			// initialize components
+			// TODO: move this as a function to conditional loader and call it with an event like 'resourceLoader.init'
+			// TODO: make sure conditional loader things are iitialized AFTER all other inits in main.js (maybe a comment where to place your plugin inits is enough)
 			$conditionalResources.each(function() {
 				if ($(this).data('init')) {
 					var init = eval($(this).attr('data-init')); // jshint ignore:line
@@ -31,7 +33,7 @@
 
 	});
 
-	global.configuration.set('initCore', function () {
+	ffglobal.configuration.set('initCore', function () {
 
 		// offcanvas click events
 		$('[data-offcanvas-show]').on('click', function (e) {
