@@ -20,7 +20,7 @@ It depends heavily on the [hbs-build-framework](https://github.com/virtualidenti
 **yarn** is a Node Package Manager which will allow us to download and install required components for Node.js with ease
 See <https://yarnpkg.com/> for details of this dependency manager
 
-1. Run `npm install -g yarn` to install yarn dependency manager 
+1. Run `npm install -g yarn` to install yarn dependency manager
 1a. (On windows) You can also get the installer from <https://yarnpkg.com/en/docs/install>.
 
 ### 3. Gulp
@@ -53,7 +53,7 @@ This file lets you enable and disable certain tasks as well as specify additiona
 __resource folders__
 To add additional resource folders, create the folders and add the paths to the global.resources array.
 The path needs to be prepended with a "/" and relative to the app folder.
-The default resource folder is "/resources"
+The default resource folder is "/resources".
 
 __component folders__
 To add additional component folders, create the folders and add the paths to the global.components array.
@@ -62,7 +62,7 @@ The default components folder is "/components"
 If an additinal component folder is added create an additional resource Folder since every components folder nees its own corresponding resource folder.
 
 __tasks__
-To disable certain tasks, simply set the specific task to false. 
+To disable certain tasks, simply set the specific task to false.
 At the moment the tasks that can be disabled are: "linting", "iconfont", "angular", "handlebars", "uglify", "cleanCss", "favicons", "cssStats".
 Per default all tasks are enabled.
 
@@ -70,22 +70,22 @@ __uglifyExceptions__
 You can add files which should not be uglified during the uglify task (e.g. files that are already uglified)
 
 __externalResources__
-Add file paths of files that are needed for the build package. The path must be relative to each package inside node_modules.
+The "externalResources" object is used to list external dependencies for each resource folder. The files listed under each resource folder will be fetched during build and copied into the relevant subfolders of that resource folder (for example CSS files will go into "css/vendor" subfolder). The file paths must be relative to each package inside node_modules.
 
 ## Patterns
 
-We use different boilerplates to keep our coding structure as homogenous as possible. 
+We use different boilerplates to keep our coding structure as homogenous as possible.
 
 ### JavaScript / TypeScript
 
 #### jQuery TypeScript Plugins - Advanced
 
-The framework contains a local demo integration of the VI jQuery Boilerplate. 
+The framework contains a local demo integration of the VI jQuery Boilerplate.
 See `app/resources/ts/jquery.plugin.advanced.ts` for a local demo.
 
 For more informations have a look at the repository: https://github.com/vi-plugins/jquery-boilerplate
 
-If you are going to write generic plugins that might be useful in lots of other projects, 
+If you are going to write generic plugins that might be useful in lots of other projects,
 please mirror the repository above and add them to our [vi-plugins](https://github.com/vi-plugins) project.
 
 For project-use only you can copy the structure into your local `app/resources/ts/` folder.
@@ -96,10 +96,10 @@ For project-use only you can copy the structure into your local `app/resources/t
 The standalone jQuery TypeScript Plugin is a TypeScript port of the legacy jQuery Plugin boilerplate.
 See `app/resources/ts/jquery.plugin.simple.ts` for a local demo.
 
-It includes the same features as the legacy boilerplate but nicely enriched by lots of TypeScript features like type checking and code completion. 
+It includes the same features as the legacy boilerplate but nicely enriched by lots of TypeScript features like type checking and code completion.
 We also use the possibility to compile to ES5 or ES6. Depending on the projects browser matrix.   
 
-The corresponding pattern file can be found in `patterns/jquery.typescript.boilerplate.ts` 
+The corresponding pattern file can be found in `patterns/jquery.typescript.boilerplate.ts`
 
 
 #### Plain and simple jQuery Plugins (legacy way)
@@ -111,7 +111,7 @@ The corresponding pattern file can be found in `/patterns/jquery.typescript.boil
 
 ### CSS / SASS
 
-We compile the CSS stylesheets with a SASS compiler. To organize the code as efficient as possible we use the BEM methodology: 
+We compile the CSS stylesheets with a SASS compiler. To organize the code as efficient as possible we use the BEM methodology:
 see https://github.com/virtualidentityag/viFrontendStandards/wiki/vi-BEM  
 
 ## Development
@@ -121,8 +121,8 @@ run the boilerplate with `gulp serve`
 ### 1. Our helpers
 
 * `{{> partial}}` - include a handlebars partial. Partials are automatically created from components and partial folders. The partials can be *.hbs or *.html. Example: For the file components/foldername/handlebarsfile.html use the partial identifier foldername/handlebarsfile.  
-* `{{include 'partial'}}` - custom partial helper, allows the use of json data as files or a string 
-* `{{def variable 'default value'}}` - set a default value for a variable 
+* `{{include 'partial'}}` - custom partial helper, allows the use of json data as files or a string
+* `{{def variable 'default value'}}` - set a default value for a variable
 * `{{text 500}}` - a filler text with 500 chars
 
 @TODO - add all helper functions
@@ -161,11 +161,10 @@ There is a gulp task for doing releases. Use gulp release --type=[major,minor,pa
 ### Line-break errors in eslint
 
 If there are line-break errors in eslint, it may be because false line endings set by git. Try to check out the repo again.
-To prevent this check the git config "core.autocrlf". 
+To prevent this check the git config "core.autocrlf".
 
 ### gulp serve malloc error (Unix Only)
 
 ************** gulp(975,0x104c15000) malloc: *** error for object 0x10164201c: pointer being freed was not allocated *** set a breakpoint in malloc_error_break to debug **************
 
 This is caused by missing sass files. Be sure you've done a bower install before gulp serve.
-
