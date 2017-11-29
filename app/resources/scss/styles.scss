@@ -16,7 +16,6 @@
 
 /* layout */
 @import "layouts/default";
-@import "layouts/offcanvas";
 @import "layouts/section";
 @import "layouts/grid";
 
@@ -24,5 +23,5 @@
 @import "base/margins";
 @import "base/types";
 
-/* components */
-@import "components/transformicons/hamburger";
+/* elements */
+@import "../../components/hamburger/hamburger";
