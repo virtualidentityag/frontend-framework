@@ -3,7 +3,7 @@
 ## Introduction
 
 This frontend framework boilerplate helps you to easily kickstart new frontend frameworks. Just mirror this repository, run the setup tasks and start developing.
-It depends heavily on the [hbs-build-framework](https://github.com/virtualidentityag/hbs-build-framework)
+It depends heavily on the [build-framework](https://github.com/frontend-framework/build-framework)
 
 ## Setup
 
@@ -16,20 +16,17 @@ It depends heavily on the [hbs-build-framework](https://github.com/virtualidenti
 2. (On Windows if asked) choose to also install NPM and add Node.js to your path.
 3. Check the installation of Node.js and NPM by running `node -v` or `npm -v` from your command line.
 
+> IMPORTANT NOTE ON PERMISSIONS: If you experience permission problems while installing Node.js (especially on Mac or Linux machines) never use `sudo` to install packages with `npm` or `yarn`
+> Please ask your IT Admins to give you proper permissions or let them do the installation. 
+> See <https://docs.npmjs.com/getting-started/fixing-npm-permissions> for instructions. 
+  
+
 ### 2. yarn
 **yarn** is a Node Package Manager which will allow us to download and install required components for Node.js with ease
 See <https://yarnpkg.com/> for details of this dependency manager
 
 1. Run `npm install -g yarn` to install yarn dependency manager 
 1a. (On windows) You can also get the installer from <https://yarnpkg.com/en/docs/install>.
-
-### 3. Gulp
-
-**Gulp** is a task automator running on Node.js. It will do a lot of hard work for us preparing the source code for productive use. Amongst others Gulp combines files, shrinks them, tests code for faults etc.
-
-1. Run `yarn global add gulp-cli` to install Gulp's command line interface globally. This will put the gulp command in your system path, allowing it to be run from any directory.
-2. Test the installation of Gulp by running `gulp --version` from your command line.
-
 
 ## Starting
 
@@ -39,8 +36,8 @@ After your are finished with the step before and everything runs fine, run these
 2. Navigate to the project folder
 3. Run `yarn install`
 4. To
-	* **start** the development environment run `gulp serve`
-	* **build** the code for production use run `gulp build`
+	* **start** the development environment run `yarn start`
+	* **build** the code for production use run `yarn build`
 
 ## Custom Configuration
 
@@ -52,12 +49,12 @@ This file lets you enable and disable certain tasks as well as specify additiona
 
 __resource folders__
 To add additional resource folders, create the folders and add the paths to the global.resources array.
-The path needs to be prepended with a "/" and relative to the app folder.
+The path needs to be prepended with a "/" and relative to the src folder.
 The default resource folder is "/resources"
 
 __component folders__
 To add additional component folders, create the folders and add the paths to the global.components array.
-The path needs to be prepended with a "/" and relative to the app folder.
+The path needs to be prepended with a "/" and relative to the src folder.
 The default components folder is "/components"
 If an additinal component folder is added create an additional resource Folder since every components folder nees its own corresponding resource folder.
 
@@ -81,20 +78,20 @@ We use different boilerplates to keep our coding structure as homogenous as poss
 #### jQuery TypeScript Plugins - Advanced
 
 The framework contains a local demo integration of the VI jQuery Boilerplate. 
-See `app/resources/ts/jquery.plugin.advanced.ts` for a local demo.
+See `src/resources/ts/jquery.plugin.advanced.ts` for a local demo.
 
 For more informations have a look at the repository: https://github.com/vi-plugins/jquery-boilerplate
 
 If you are going to write generic plugins that might be useful in lots of other projects, 
 please mirror the repository above and add them to our [vi-plugins](https://github.com/vi-plugins) project.
 
-For project-use only you can copy the structure into your local `app/resources/ts/` folder.
+For project-use only you can copy the structure into your local `src/resources/ts/` folder.
 
 
 #### jQuery TypeScript Plugins - Simple
 
 The standalone jQuery TypeScript Plugin is a TypeScript port of the legacy jQuery Plugin boilerplate.
-See `app/resources/ts/jquery.plugin.simple.ts` for a local demo.
+See `src/resources/ts/jquery.plugin.simple.ts` for a local demo.
 
 It includes the same features as the legacy boilerplate but nicely enriched by lots of TypeScript features like type checking and code completion. 
 We also use the possibility to compile to ES5 or ES6. Depending on the projects browser matrix.   
@@ -116,7 +113,7 @@ see https://github.com/virtualidentityag/viFrontendStandards/wiki/vi-BEM
 
 ## Development
 
-run the boilerplate with `gulp serve`
+run the boilerplate with `yarn start`
 
 ### 1. Our helpers
 
@@ -129,13 +126,13 @@ run the boilerplate with `gulp serve`
 
 ### 2. Folder structure
 
-* `/app` is where all of the actual frontend code is stored
-* `/app/_assets` holds static placeholder files like images, audio- and video files.
-* `/app/_mock` holds files that would be generated dynamically by the cms implementing the frontend and not explicitly corresponding to a component
-* `/app/_config` holds the js configuration file
-* `/app/pages` holds the base html files to create the index preview
-* `/app/resources` holds global resources: JavaScript, TypeScript, SASS/CSS and other files
-* `/app/components` holds reusable components and the corresponding resource files
+* `/src` is where all of the actual frontend code is stored
+* `/src/_assets` holds static placeholder files like images, audio- and video files.
+* `/src/_mock` holds files that would be generated dynamically by the cms implementing the frontend and not explicitly corresponding to a component
+* `/src/_config` holds the js configuration file
+* `/src/pages` holds the base html files to create the index preview
+* `/src/resources` holds global resources: JavaScript, TypeScript, SASS/CSS and other files
+* `/src/components` holds reusable components and the corresponding resource files
 * `/test` is where we put automated tests for Travis CI
 
 ## Testing
@@ -144,7 +141,7 @@ run the boilerplate with `gulp serve`
 
 ## Build
 
-run the boilerplate with `gulp build`
+run the boilerplate with `yarn build`
 If everything is correct, you will find a build version of your code in the **dist** directory.
 This contains among others a min and concat version of your js and css files
 
@@ -167,5 +164,5 @@ To prevent this check the git config "core.autocrlf".
 
 ************** gulp(975,0x104c15000) malloc: *** error for object 0x10164201c: pointer being freed was not allocated *** set a breakpoint in malloc_error_break to debug **************
 
-This is caused by missing sass files. Be sure you've done a bower install before gulp serve.
+This is caused by missing sass files. Be sure you've done a bower install before `yarn start`.
 
